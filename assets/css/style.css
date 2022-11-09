@@ -5,6 +5,7 @@ body {
 }
 
 textarea {
+  width: 100%; 
   background: transparent;
   border: none;
   resize: none;
@@ -61,11 +62,14 @@ textarea {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
+  padding: 20px 25px;
   background-color: #06aed5;
   color: white;
+  font-size: 10px;
 }
 
-.saveBtn i:hover {
+/* .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
-}
+} */
+
