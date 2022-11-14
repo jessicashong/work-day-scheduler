@@ -1,7 +1,4 @@
 var date = document.getElementById('currentDay');
-var textEntry = document.querySelector('.event');
-var saveBtn = document.querySelector('.saveBtn');
-
 
 //date element on jumbotron
 var currentDate = moment();
@@ -29,24 +26,26 @@ function checkTime(){
 checkTime();
 
 //store value in local storage when save button is clicked
-function storeAgenda(){
-    var storedItem = localStorage.getItem('agenda');
-    console.log(localStorage);
-
-}
-
-
+var textEntry = $('.event');
 function sumbitAgendaItem(){
-    var text = JSON.stringify(textEntry).val();
-    localStorage.setItem('agenda', text);
-    console.log(textEntry);
+    for (var i = 0; i < textEntry.length; i++){
+        var timeSlot = textEntry[i].id;
+        localStorage.setItem(timeSlot, textEntry[i].value);
+        console.log(textEntry[i].value);
+        
+    }
+    textEntry.value = localStorage.getItem(timeSlot);
+    
 }
-saveBtn.addEventListener('click', sumbitAgendaItem);
+$('.saveBtn').on('click', sumbitAgendaItem);
 
 
 
-// var text = $('textarea#id');
-// textEntry = $('textarea[name="text"]').val();
-// console.log(textEntry);
-
-// localStorage.setItem('agenda', JSON.stringify(storedItem));
+// function getAgendaItem(){
+//     var storedItem = localStorage.getItem(timeSlot);
+//     if (storedItem !== null){
+//         textEntry[i].value = storedItem;
+//     } else{
+//         textEntry[i].value = ''
+//     };
+// }
