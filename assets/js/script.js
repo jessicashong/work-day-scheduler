@@ -37,14 +37,15 @@ function storeAgenda(){
 
 
 function sumbitAgendaItem(){
-    var text = JSON.stringify(textEntry);
+    var text = JSON.stringify(textEntry).val();
     localStorage.setItem('agenda', text);
+    console.log(textEntry);
 }
 saveBtn.addEventListener('click', sumbitAgendaItem);
 
 
 
-
+// var text = $('textarea#id');
 // textEntry = $('textarea[name="text"]').val();
 // console.log(textEntry);
 
