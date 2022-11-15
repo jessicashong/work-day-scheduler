@@ -27,25 +27,25 @@ checkTime();
 
 //store value in local storage when save button is clicked
 var textEntry = $('.event');
+//get userinputs that are in local storage
+function init(){
+    for (var i = 0; i < textEntry.length; i++){
+        var timeSlot = textEntry[i].id;
+        var storedTask = localStorage.getItem(timeSlot);
+        if (storedTask !== null) {
+            textEntry[i].value = storedTask;
+        }
+    }
+}
+
+//store user input in local storage
 function sumbitAgendaItem(){
     for (var i = 0; i < textEntry.length; i++){
         var timeSlot = textEntry[i].id;
         localStorage.setItem(timeSlot, textEntry[i].value);
         console.log(textEntry[i].value);
-        
     }
-    textEntry.value = localStorage.getItem(timeSlot);
-    
 }
 $('.saveBtn').on('click', sumbitAgendaItem);
+init();
 
-
-
-// function getAgendaItem(){
-//     var storedItem = localStorage.getItem(timeSlot);
-//     if (storedItem !== null){
-//         textEntry[i].value = storedItem;
-//     } else{
-//         textEntry[i].value = ''
-//     };
-// }
